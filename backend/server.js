@@ -10,7 +10,9 @@ app.get("/", (req, res) => {
   res.status(200).json({ message: "Welcome to support API!" });
 });
 
-// Routes
-app.use("/api/users", require("./routes/userRoutes"));
+const userRoutes = require("./routes/userRoutes");
+
+// Routes, here we mount /api/users this router
+app.use("/api/users", userRoutes);
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
